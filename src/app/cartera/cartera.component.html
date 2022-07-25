@@ -1,0 +1,62 @@
+<main class="container">
+  <div class="row">
+    <div class="col">
+      <a
+        type="button"
+        href="#contenido1"
+        data-bs-toggle="collapse"
+        class="btn btn-primary me-4">
+        Añadir Activo
+      </a>
+
+      <a
+        type="button"
+        href="#contenido2"
+        data-bs-toggle="collapse"
+        class="btn btn-primary me-4"
+      >
+        Resultado</a
+      >
+
+      <a
+      type="button"
+      href="#contenido3"
+      data-bs-toggle="collapse"
+      class="btn btn-primary me-4">
+      Cotizaciones
+    </a>
+    </div>
+  </div>
+
+  <div class="collapse" id="contenido1">
+    <div class="row">
+      <section class="col-12">
+        <div class="col-6 float-start">
+          <app-listado [activos]="activos"></app-listado>
+        </div>
+        <div class="col-6 float-start">
+          <app-form-agregar-activo
+            (activoCreado)="IncluirActivo($event)"
+          ></app-form-agregar-activo>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="collapse" id="contenido2">
+    <app-resultado [activos]="activos"></app-resultado>
+  </div>
+
+  <div class="collapse" id="contenido3">
+    <iframe
+      src="https://es.widgets.investing.com/top-cryptocurrencies?theme=darkTheme"
+      width="100%"
+      height="800px"
+      frameborder="0"
+      allowtransparency="true"
+      marginwidth="0"
+      marginheight="0"
+    ></iframe>
+   
+  </div>
+</main>

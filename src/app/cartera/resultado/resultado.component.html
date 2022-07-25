@@ -1,0 +1,88 @@
+<table class="table table-striped text-center">
+  <thead class="table-info">
+    <tr>
+      <th>Nombre</th>
+      <th>Precio Compra</th>
+      <th>Cantidad</th>
+      <th>Inversión</th>
+      <th>cotizacion</th>
+      <th>Valor actual Inversión</th>
+      <th>Resultado</th>
+      <th>Rentabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let activo of activos">
+      <td>{{ activo.nombre }}</td>
+      <td>{{ activo.precioCompra | currency: "€" }}</td>
+      <td>{{ activo.cantidad }}</td>
+      <td>{{ activo.precioCompra * activo.cantidad | currency: "€" }}</td>
+
+      <td> <!--  Cotizacion-->
+        <div *ngFor="let cot of cotizacion" class="text-center">
+          <span class="w-100 text-center" *ngIf="activo.nombre == cot.nombre">
+            {{ cot.precio | currency: "€" }}</span
+          >
+        </div>
+      </td>
+
+      <!--  VALOR ACTUAL INVERSION-->
+      <td>
+        <div *ngFor="let cot of cotizacion" class="text-center">
+          <span class="w-100 text-center" *ngIf="activo.nombre == cot.nombre">
+            {{ cot.precio * activo.cantidad| currency: "€" }}</span
+          >
+        </div>
+      </td>
+
+
+      <td><!-- Resultado-->
+        <div *ngFor="let cot of cotizacion" class="text-center">
+          <div *ngIf="activo.nombre == cot.nombre">
+            <div
+              *ngIf="
+                (activo.precioCompra * activo.cantidad) >
+                  (cot.precio * activo.cantidad);
+                then pierde;
+                else gana
+              "
+            ></div>
+            <ng-template #pierde>
+              <span class="bg-danger text-white">Perdida</span>
+            </ng-template>
+            <ng-template #gana>
+              <span class="bg-success text-white">Ganancia</span>
+            </ng-template>
+          </div>
+        </div>
+      </td>
+
+      <td> <!-- Rentabilidad-->
+        <div *ngFor="let cot of cotizacion" class="text-center">
+          <div *ngIf="activo.nombre == cot.nombre">
+            <div
+              *ngIf="
+                (activo.precioCompra * activo.cantidad) >
+                  (cot.precio * activo.cantidad);
+                then pierde;
+                else gana
+              "
+            ></div>
+            <ng-template #pierde>
+              <span class="text-danger">{{ ( (( cot.precio * activo.cantidad) - (activo.precioCompra * activo.cantidad)) /(activo.precioCompra * activo.cantidad)) | percent}} </span>
+            </ng-template>
+            <ng-template #gana>
+              <span class="text-success">{{ ( (( cot.precio * activo.cantidad) - (activo.precioCompra * activo.cantidad)) /(activo.precioCompra * activo.cantidad)) | percent}}</span>
+            </ng-template>
+          </div>
+        </div>
+      </td>
+
+      <!--
+            <td class="text-danger">{{ ((2000-activo.precioCompra * activo.cantidad )/100) | percent}} </td>
+        
+       
+            <td class="text-success">{{ ((2000-activo.precioCompra * activo.cantidad )/100) | percent}} </td>-->
+    </tr>
+  </tbody>
+</table>

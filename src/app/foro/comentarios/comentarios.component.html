@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <h2>{{tit}}</h2>
+    </div>
+
+    <main class="border">
+        <div class="row">
+        <div *ngFor="let post of posts">
+            <article class="p-1">
+                <div class="col">
+                    <p>El usuario <span class="bg-warning "><strong>{{post.user}}</strong></span> dice:<br>
+                     {{post.mensaje}}</p>
+                </div>
+               
+
+            </article>
+    </div>
+</div>
+    </main>
+
+    
+
+</div>
+

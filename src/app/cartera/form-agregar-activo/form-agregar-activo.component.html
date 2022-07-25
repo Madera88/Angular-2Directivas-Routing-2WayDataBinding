@@ -1,0 +1,28 @@
+<form >
+    <fieldset class="border p-5">
+        <legend>Agregar Cripto</legend>
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+       <!-- <input class="form-control" type="text"  placeholder="Introducir el nombre"  name="nombre" id="nombre" [(ngModel)]="nombre" >-->
+        <select class="form-select" type="select"  name="nombre" id="nombre" [(ngModel)]="nombre" required>
+            
+            <option value="Bitcoin">Bitcoin</option>
+            <option value="ETH">ETH</option>
+            <option value="Cardano">Cardano</option>
+            <option value="Solana">Solana</option>
+            <option value="BNB">BNB</option>
+            <option value="Dagecoin">Dagecoin</option>
+          </select>
+    </div>
+    <div class="form-group">
+        <label for="precio">Precio de Compra</label>
+        <input class="form-control" type="number"   name="precio" id="precio" [(ngModel)]="precio" min="0" required >
+    </div>
+    <div class="form-group">
+        <label for="cantidad">Cantidad</label>
+        <input class="form-control" type="number"   name="cantidad" id="cantidad" [(ngModel)]="cantidad" min="0" required>
+    </div>
+    <button class="btn btn-danger mt-3 ms-5" type="reset" >Limpiar</button>
+    <button class="btn btn-primary mt-3 float-end me-5 " type="submit" (click)="AgregarCripto()" >Guardar</button>
+</fieldset>
+</form>

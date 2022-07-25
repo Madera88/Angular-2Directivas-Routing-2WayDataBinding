@@ -1,0 +1,17 @@
+<div class="row">
+<form>
+<fieldset>
+    <legend>Comentar:</legend>
+    <div>
+        <label for="user">Nickname:</label>
+        <input type="text"  class="form-control" name="user" id="user"  placeholder="Indique su nick" [(ngModel)]="nombre">
+    </div>
+    <div>
+        <label for="mensaje">Mensaje:</label>
+        <input type="text" class="form-control" name="mensaje" id="mensaje" [(ngModel)]="mensaje">
+    </div>
+    <button class="btn btn-danger mt-3 ms-5" type="reset" >Limpiar</button>
+    <button class="btn btn-primary mt-3 float-end me-5 " type="submit" (click)="comentar()" >Comentar</button>
+</fieldset>
+</form>
+</div>

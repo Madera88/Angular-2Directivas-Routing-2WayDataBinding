@@ -1,0 +1,11 @@
+<main class="container">
+  <section class="row">
+    <div class="col-6">
+      <app-comentarios [posts]="posts"></app-comentarios>
+    </div>
+
+    <div class="col-6">
+      <app-comentar (comentario)="incluirComentario($event)"></app-comentar>
+    </div>
+  </section>
+</main>

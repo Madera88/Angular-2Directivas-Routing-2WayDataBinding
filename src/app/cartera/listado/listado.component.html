@@ -1,0 +1,16 @@
+<table class="table table-striped text-center">
+  <thead class="table-info">
+    <tr>
+      <th>Nombre</th>
+      <th>Precio Compra</th>
+      <th>Cantidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let activo of activos">
+      <td>{{ activo.nombre }}</td>
+      <td>{{ activo.precioCompra | currency:"€"}}</td>
+      <td>{{ activo.cantidad }}</td>
+    </tr>
+  </tbody>
+</table>
